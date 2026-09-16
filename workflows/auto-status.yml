@@ -1,0 +1,19 @@
+name: Move issue to "In verification" when all linked PRs merged
+ 
+on:
+  pull_request:
+    types: [closed]
+ 
+permissions:
+  contents: read
+ 
+jobs:
+  update-status:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: ./.github/actions/update-status
+        with:
+          github-token: ${{ secrets.PROJECT_PAT }}
+ 
