@@ -1,0 +1,10 @@
+name: 'Move issue to In verification'
+description: 'Moves linked issue project items from In progress to In verification when all linked PRs are merged'
+inputs:
+  github-token:
+    description: 'GitHub token with project write access'
+    required: true
+runs:
+  using: 'node24'
+  main: 'dist/index.js'
+ 
